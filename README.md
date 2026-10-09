@@ -29,9 +29,13 @@ xattr -cr /Applications/Verdandi.app
 > opened", that build had a broken signature — install **0.1.3** or later
 > instead.
 
-**Windows** — the Windows installer is temporarily unavailable while our
-build pipeline is being fixed. An older v0.1.0 build exists but predates
-several important fixes; we recommend waiting for the next Windows release.
+**Windows (10+)** — [latest release](../../releases/latest) →
+`Verdandi_0.1.4_x64-setup.exe`
+
+The installer is unsigned, so SmartScreen shows *"Windows protected your
+PC"*: click **More info** → **Run anyway**. If Microsoft Edge WebView2
+isn't installed, the installer fetches it automatically. A `.msi` is also
+available for managed installs.
 
 ## What you need
 
