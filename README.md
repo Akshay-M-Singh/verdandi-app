@@ -9,10 +9,25 @@ workbook.
 
 **macOS (Apple Silicon, 10.15+)** — [latest release](../../releases/latest)
 
-The app is currently **unsigned**, so macOS warns on first launch:
+The app is **ad-hoc signed** (not notarized), so macOS asks for a one-time
+approval on first launch:
 
-- Right-click the app → **Open** → **Open** again, or
-- `xattr -d com.apple.quarantine /Applications/Verdandi.app`
+1. Open the app once — macOS blocks it.
+2. Go to **System Settings → Privacy & Security**, scroll to the Security
+   section, and click **Open Anyway** next to Verdandi.
+3. Open it again and confirm.
+
+If your macOS version doesn't show that button, run:
+
+```sh
+xattr -cr /Applications/Verdandi.app
+```
+
+(On older macOS versions, right-click → **Open** also works.)
+
+> If you installed **0.1.2** and saw "Verdandi is damaged and can't be
+> opened", that build had a broken signature — install **0.1.3** or later
+> instead.
 
 **Windows** — the Windows installer is temporarily unavailable while our
 build pipeline is being fixed. An older v0.1.0 build exists but predates
