@@ -1,8 +1,8 @@
 # Verdandi
 
 **Verdandi reads documents and turns them into verified, structured data.**
-Point it at PDFs — broker tax invoices, bills of entry, air waybills,
-commercial invoices, receipts, or any other document — and it captures the
+Point it at PDFs — Invoices, bills of entry, air waybills, 
+receipts, or any other document — and it captures the
 pages, reads them with a vision AI model, checks every value locally, and
 exports a clean Excel workbook with anything doubtful flagged for review.
 
