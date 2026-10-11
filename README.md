@@ -19,9 +19,9 @@ being read, through the AI provider **you** configure with **your own key**.
 ### Reads any document with vision AI
 One paid model call per document. Vision-primary means no brittle template
 matching: the model sees the page and reports what is printed. Verdandi ships
-with starter templates for freight documents — broker tax invoice, bill of
-entry, air waybill, commercial invoice — and you can build your own in the
-app.
+with generic starter templates — "Any document" and a plain "Invoice" — and
+you can build your own in the app for whatever you process (freight documents
+included).
 
 ### Capture is free — spend only when you extract
 Rendering, OCR and orientation handling are local and free. Preview every
@@ -56,12 +56,12 @@ storage cleanup in the Console.
 
 ## Requirements
 
-- **macOS 10.15+ (Apple Silicon)** or **Windows 10+ (x64)**
+- **macOS 11+ (Apple Silicon)** or **Windows 10+ (x64)**
 - Your own **opencode Zen gateway key** — get one at
   [opencode.ai/auth](https://opencode.ai/auth). It is stored in your
   operating system's keychain, never in a file.
-- Internet connection for extraction. Capture, review and export work
-  offline.
+- Internet connection for extraction. Capture works offline after the first
+  run (the OCR engine downloads its models once, on the first capture).
 - Nothing else to install: the OCR engine is bundled (Xcode is not
   required).
 
@@ -81,8 +81,8 @@ storage cleanup in the Console.
 
 ### Windows
 
-1. Download `Verdandi_<version>_x64-setup.exe` (or the `.msi` for managed
-   installs) from the [latest release](../../releases/latest).
+1. Download `Verdandi_<version>_x64-setup.exe` from the
+   [latest release](../../releases/latest).
 2. Run it. The installer is unsigned, so SmartScreen shows *"Windows
    protected your PC"* — click **More info** → **Run anyway**.
 3. Microsoft Edge WebView2 is downloaded automatically if it is missing.
@@ -167,7 +167,8 @@ with line-item F1 0.958 vs 0.893, at roughly **one tenth of the cost**.
 - **Updates:** the app checks quietly on launch and offers new versions in
   Settings; updates install in place.
 - **Where data lives:** `~/.verdandi` (macOS) or `%USERPROFILE%\.verdandi`
-  (Windows) — settings, templates, runs and exports.
+  (Windows) — settings, templates, runs and exports. In the app, Settings →
+  Workspace → **Open folder** takes you straight there.
 - **Uninstall:** delete the app and delete that folder to remove all data.
 
 ## Troubleshooting
@@ -176,7 +177,7 @@ with line-item F1 0.958 vs 0.893, at roughly **one tenth of the cost**.
 |---|---|
 | macOS: *"cannot verify…"* on first open | System Settings → Privacy & Security → **Open Anyway**, or `xattr -cr /Applications/Verdandi.app` |
 | Windows: *"Windows protected your PC"* | **More info** → **Run anyway** |
-| "Engine offline" in the sidebar | Restart the app; the log at `~/.verdandi/logs/shell.log` records what happened. Still stuck? Email us. |
+| "Engine offline" in the sidebar | Restart the app; the logs under `~/.verdandi/logs/` (`shell.log`, `engine.log`) record what happened. Still stuck? Email us. |
 | "Gateway key was rejected" | Re-check the key in Settings (it must be an opencode Zen key). |
 | A page image is missing after cleanup | Page renders were pruned to save space — re-capture the file (free). |
 
